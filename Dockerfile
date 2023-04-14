@@ -4,6 +4,7 @@ FROM maven:3.9.0-eclipse-temurin-17-alpine AS maven-build
 WORKDIR /usr/src/discovery-system
 COPY ./pom.xml ./
 COPY ./src ./src
+RUN export DOCKER_BUILDKIT=1
 RUN --mount=type=cache,target=/root/.m2 mvn clean package -DskipTests
 
 # Run
