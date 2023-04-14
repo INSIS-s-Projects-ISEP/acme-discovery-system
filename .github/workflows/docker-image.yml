@@ -21,4 +21,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag discovery-system:latest
+      run: DOCKER_BUILDKIT=1 docker build . --file Dockerfile --tag discovery-system:latest
